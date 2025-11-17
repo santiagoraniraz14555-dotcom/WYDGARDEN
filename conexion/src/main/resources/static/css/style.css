@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(238, 238, 238);
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.inicio {
+    display: flex;
+    justify-content: center;
+}
+
+.inicio img {
+    width: 10%;
+}
+
+
+.contenedor ul {
+    list-style: none;
+}
+
+.contenedor a li {
+    color: white;
+}
+
+.contenedor a li:hover {
+    color: rgb(0, 0, 0);
+}
+
+.contenedor a {
+    text-decoration: none;
+}
+
+.menu {
+    background-color: rgb(193, 193, 193);
+    padding: 0 0 1px 1px;
+}
+
+.menu-lista {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.menu-lista li {
+    position: relative;
+}
+
+.menu-lista a {
+    color: rgb(13, 75, 9);
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.menu-lista a:hover {
+    color: greenyellow;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #bbb8b8;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.submenu li a {
+    padding: 10px 15px;
+    display: block;
+    white-space: nowrap;
+}
+
+.menu-lista li:hover .submenu {
+    display: block;
+}
+
+.producto a::before {
+    content: "▼";
+    margin-right: 8px;
+    color: rgb(3, 52, 5);
+}
+
+.submenu li a::before {
+    content: none;
+}
+
+.catalogo img {
+    animation: moverImagen 3s linear infinite;
+    position: relative;
+    width: 25%;
+    border-radius: 10px;
+}
+
+@keyframes moverImagen {
+    0% {
+        left: 0px;
+    }
+
+    50% {
+        left: 3px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+.catalogo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto h1 {
+    text-align: center;
+}
+
+.texto span {
+    color: rgb(7, 149, 30);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    padding: 100px;
+    text-decoration: none;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(4, 104, 42);
+}
+
+footer li {
+    list-style: none;
+    color: rgb(4, 104, 42);
+}
+
+footer li:hover {
+    transition: 1.3s ease;
+    color: rgb(26, 219, 61);
+}
+
+footer a:hover {
+    transition: 1.3s ease;
+    color: rgb(26, 219, 61);
+}
+
+footer .mapa {
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer .mapa iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 450px;
+    border: none;
+}
+
+/* Carrusel contenedor */
+.slider {
+    width: 860px;
+    /* Ancho para mostrar 2 slides parcialmente */
+    overflow: hidden;
+    margin: 60px auto;
+    position: relative;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f8f8f8, #ffffff);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    padding: 30px 20px;
+    margin-top: 5%;
+}
+
+/* Contenedor deslizante */
+.slider-inner {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide individual */
+.slider-item {
+    flex: 0 0 400px;
+    margin-right: 30px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.slider-item:hover {
+    transform: scale(1.04);
+}
+
+/* Imagen del slide */
+.slider-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+.slider h1 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Estilos para los cuadros  */
+.cuadro {
+    align-items: center;
+    width: 400px;
+    height: 250px;
+    margin: 100px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #10940b52;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 1);
+    transition: transform 0.3s ease;
+
+    /* Efecto de escala */
+    display: inline-block;
+    vertical-align: top;
+    /* Alinear en la parte superior */
+    color: #000000;
+
+}
+
+.cuadro p {
+    text-align: justify;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 80%;
+    line-height: 1.4;
+    margin: 0px;
+}
+
+.cuadro h2 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 120%;
+    margin: 4px
+}
+
+
+
+/* Cambiar el color de fondo al pasar el mouse */
+.cuadro hover {
+    background-color: #ddd;
+}
+
+/* Escalar el cuadro al pasar el mouse */
+.cuadro:hover {
+    transform: scale(1.05);
+    /* Escala al 105% del tamaño original */
+}
+
+.cuadros {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    flex-wrap: nowrap;
+    /* Que NO se bajen de línea */
+    overflow-x: auto;
+    /* Agrega scroll horizontal si no caben */
+    gap: 20px;
+    /* Espacio entre cuadros */
+}
+
+
+.intro {
+    text-align: center;
+    padding: 30px;
+    color: #333;
+}

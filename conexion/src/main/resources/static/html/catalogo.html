@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WYDGARDEN</title>
+  <link rel="stylesheet" href="css/catalogo.css" />
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="main-header">
+    <div class="contenedor">
+      <nav class="barra-navegacion">
+        <a href="index.html" class="inicio">
+          <img src="img/logo.ico" alt="Logo WYDGARDEN" />
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard lateral + catálogo -->
+  <div class="dashboard">
+    <!-- Menú lateral -->
+    <div class="sidebar">
+      <h2>WYDGARDEN</h2>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="crud.html">Empleados</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="carrito.html">Carrito de compras</a></li>
+      </ul>
+    </div>
+
+    <!-- Catálogo -->
+    <div class="contenido-dashboard">
+      <main class="catalogo">
+        <div class="producto">
+          <img src="img/producto1.png" alt="Aceites esenciales">
+          <h2>Aceites</h2>
+          <p>Relajación profunda con aceites 100% naturales.</p>
+          <span class="precio">$25.000</span>
+          <button>Comprar</button>
+        </div>
+
+        <div class="producto">
+          <img src="img/producto4.png" alt="Pomadas naturales">
+          <h2>Pomadas</h2>
+          <p>Alivio muscular con ingredientes naturales.</p>
+          <span class="precio">$18.000</span>
+          <button>Comprar</button>
+        </div>
+
+        <div class="producto">
+          <img src="img/producto2.png" alt="Mascarillas faciales">
+          <h2>Mascarillas</h2>
+          <p>Cuidado facial con extractos botánicos.</p>
+          <span class="precio">$15.000</span>
+          <button>Comprar</button>
+        </div>
+
+        <div class="producto">
+          <img src="img/producto3.png" alt="Inciensos artesanales">
+          <h2>Inciensos</h2>
+          <p>Purifica tus espacios con aromas naturales.</p>
+          <span class="precio">$10.000</span>
+          <button>Comprar</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+  // Obtiene todos los botones "Comprar"
+  const botonesComprar = document.querySelectorAll('.producto button');
+
+  botonesComprar.forEach((boton, index) => {
+    boton.addEventListener('click', () => {
+      const producto = boton.parentElement;
+      const nombre = producto.querySelector('h2').textContent;
+      const precioTexto = producto.querySelector('.precio').textContent;
+      const precio = parseInt(precioTexto.replace(/[^\d]/g, ''));
+
+      agregarAlCarrito(nombre, precio);
+    });
+  });
+
+  function agregarAlCarrito(nombre, precio) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
+
+    if (carrito[nombre]) {
+      carrito[nombre].cantidad += 1;
+    } else {
+      carrito[nombre] = { precio, cantidad: 1 };
+    }
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert(`${nombre} agregado al carrito.`);
+  }
+</script>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content container">
+      <div class="link">
+        <h3 id="contacto">Contáctanos</h3>
+        <br>
+        <ul>
+          <li><a href="#">320 491 0123</a></li>
+          <li><a href="#">301 319 0047</a></li>
+        </ul>
+      </div>
+      <div class="link">
+        <h3>Correo de contacto</h3>
+        <br>
+        <ul>
+          <li><a href="#">Wydgarden@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="link">
+        <ul>
+          <li>© WYDGARDEN</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mapa -->
+    <section class="mapa">
+      <h2>¿Dónde nos ubicamos?</h2>
+      <iframe id="mapa"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.3920314246875!2d-74.10776779999999!3d4.701765099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b4eb9dbc98d%3A0xb953371c8dec6115!2sColegio%20Nydia%20Quintero%20de%20Turbay!5e0!3m2!1ses!2sco!4v1694268876382!5m2!1ses!2sco"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </footer>
+</body>
+</html>

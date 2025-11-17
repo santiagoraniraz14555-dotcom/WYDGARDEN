@@ -1,0 +1,237 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f1fdf1;
+  color: #333;
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.inicio {
+    display: flex;
+    justify-content: center;
+}
+
+.inicio img {
+    width: 10%;
+}
+
+
+.contenedor ul {
+    list-style: none;
+}
+
+.contenedor a li {
+    color: white;
+}
+
+.contenedor a li:hover {
+    color: rgb(0, 0, 0);
+}
+
+.contenedor a {
+    text-decoration: none;
+}
+
+
+
+/* Contenedor principal del dashboard */
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+h2{
+    color: #fff;
+}
+
+
+/* Barra lateral */
+.sidebar {
+    width: 250px;
+    background-color: #383838;
+    color: #fff;
+    padding: 20px;
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* CORREGIDO: clase estaba mal escrita (slidebar → sidebar) */
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #fff; /* CORREGIDO: "#Fff" puede no reconocerse bien */
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+
+    /* CORREGIDO: coma mal usada → reemplazada por punto */
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575d6d;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Catálogo de productos */
+.contenido-dashboard {
+  flex: 1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* o center si prefieres centrarlos */
+  gap: 30px;
+  max-width: 1000px;
+}
+
+.producto {
+  background-color: #ffffff;
+  border: 1px solid #10940b52;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.producto h2 {
+  color: #10940b;
+  margin-bottom: 10px;
+}
+
+.producto p {
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.producto button {
+  padding: 10px 20px;
+  background-color: #10940b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.producto button:hover {
+  background-color: #0a6707;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.precio {
+  display: block;
+  font-weight: bold;
+  color: #10940b;
+  font-size: 1.1em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    padding: 100px;
+    text-decoration: none;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(4, 104, 42);
+}
+
+footer li {
+    list-style: none;
+    color: rgb(4, 104, 42);
+}
+
+footer li:hover {
+    transition: 1.3s ease;
+    color: rgb(26, 219, 61);
+}
+
+footer a:hover {
+    transition: 1.3s ease;
+    color: rgb(26, 219, 61);
+}
+
+footer .mapa {
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer .mapa iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 450px;
+    border: none;
+}
